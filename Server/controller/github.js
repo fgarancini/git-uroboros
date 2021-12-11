@@ -26,7 +26,21 @@ const GetRepo = async (req,res,next) => {
     },
   });
 };
+
+const GetCommits = async (req,res,next) => {
+  const commits = await gitService.GetCommits();
+  if (!commits) {
+    return next(new AppError("Commits not found", 404));
+  }
+  res.status(200).json({
+    status: "success",
+    data: {
+      commits,
+    },
+  });
+}
 module.exports = {
   GetProfile,
+  GetCommits,
   GetRepo
 };

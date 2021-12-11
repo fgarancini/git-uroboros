@@ -31,7 +31,27 @@ const GetRepo = async () => {
   return repo;
 };
 
+const GetCommits = async () => {
+  const octoKit = AuthGit();
+  const commitsReq = await octoKit.request(
+    "GET /repos/fgarancini/git-uroboros/commits"
+  );
+
+  const commits = commitsReq.data.map((commitInfo) => {
+    const commit = {
+      sha: commitInfo.sha,
+      html_url: commitInfo.html_url,
+      author: commitInfo.commit.author.name,
+      message: commitInfo.commit.message,
+    };
+    return commit;
+  });
+
+  return commits;
+};
+
 module.exports = {
   GetProfile,
-  GetRepo
+  GetCommits,
+  GetRepo,
 };
