@@ -18,6 +18,20 @@ const GetProfile = async () => {
   return profile;
 };
 
+const GetRepo = async () => {
+  const octoKit = AuthGit();
+  const repoReq = await octoKit.request("GET /repos/fgarancini/git-uroboros");
+  const repo = {
+    full_name: repoReq.data.full_name,
+    html_url: repoReq.data.html_url,
+    created_at: repoReq.data.created_at,
+    updated_at: repoReq.data.updated_at,
+    visibility: repoReq.data.visibility,
+  };
+  return repo;
+};
+
 module.exports = {
   GetProfile,
+  GetRepo
 };

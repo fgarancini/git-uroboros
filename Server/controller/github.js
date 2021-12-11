@@ -14,6 +14,19 @@ const GetProfile = async (req, res, next) => {
   });
 };
 
+const GetRepo = async (req,res,next) => {
+  const repo =  await gitService.GetRepo();
+  if (!repo) {
+    return next(new AppError("Repository not found", 404));
+  }
+  res.status(200).json({
+    status: "success",
+    data: {
+      repo,
+    },
+  });
+};
 module.exports = {
   GetProfile,
+  GetRepo
 };
