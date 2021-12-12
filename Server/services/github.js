@@ -38,7 +38,6 @@ const GetCommits = async () => {
   );
   const commits = commitsReq.data.map((commitInfo) => {
     const short_sha = commitInfo.sha.substr(1,7);
-    console.log(commitInfo.commit.author.date);
     const commit = {
       sha: commitInfo.sha,
       short_sha:short_sha,

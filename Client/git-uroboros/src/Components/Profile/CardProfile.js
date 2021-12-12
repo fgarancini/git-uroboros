@@ -4,7 +4,6 @@ import "./CardProfile.css";
 
 const CardProfile = (props) => {
   return (
-    <aside>
       <Card className="text-center card-profile" style={{width:'18rem'}}>
         <Card.Img variant="top" src={props.item.avatar_url} />
         <Card.Body>
@@ -18,7 +17,6 @@ const CardProfile = (props) => {
           </Button>
         </Card.Body>
       </Card>
-    </aside>
   );
 };
 

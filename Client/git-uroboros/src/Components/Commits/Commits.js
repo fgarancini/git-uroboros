@@ -17,8 +17,8 @@ const Commits = (props) => {
               {commit.author}
                <i>{`  commited ${commit.created_at}`}</i>
             </div>
-            <Button title={commit.sha} href={commit.html_url} size='lg'>
-              {commit.short_sha}
+            <Button title={commit.sha} href={commit.html_url} size='lg' id="btn-commits">
+              {commit.short_sha} 🔗
             </Button>
           </ListGroup.Item>
         );

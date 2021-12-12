@@ -19,9 +19,9 @@ const MainRepo = () => {
   };
 
   return (
-    <Fragment>
+    <div>
       {!IsLoading && repoInfo && <CardRepo repo={repoInfo}></CardRepo>}
-    </Fragment>
+    </div>
   );
 };
 

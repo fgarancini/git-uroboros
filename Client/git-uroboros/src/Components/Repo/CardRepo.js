@@ -4,7 +4,6 @@ import "./CardRepo.css";
 
 const CardRepo = (props) => {
   return (
-    <section>
       <Card className="card-repo">
         <Card.Body>
           <label className="label-repo">{props.repo.full_name}</label>
@@ -13,7 +12,6 @@ const CardRepo = (props) => {
           </Button>
         </Card.Body>
       </Card>
-    </section>
   );
 };
 

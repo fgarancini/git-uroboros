@@ -6,12 +6,19 @@ import MainCommits from "./Components/Commits/MainCommits";
 
 function App() {
   return (
-    <div className="App">
-      <MainProfile />
-      <section className="sectionRepo">
-        <MainRepo />
-        <MainCommits />
-      </section>
+    <div>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-3 profile">
+            <MainProfile />
+          </div>
+          <div className="col-md-8 ms-auto">
+            <MainRepo />
+            <MainCommits />
+          </div>
+        </div>
+        <div className="row"></div>
+      </div>
     </div>
   );
 }

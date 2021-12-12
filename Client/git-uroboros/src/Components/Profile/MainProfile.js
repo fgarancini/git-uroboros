@@ -19,9 +19,9 @@ const MainProfile = () => {
   };
 
   return (
-    <Fragment>
+    <div>
       {!IsLoading && profileInfo && <CardProfile item={profileInfo} />}
-    </Fragment>
+      </div>
   );
 };
 
