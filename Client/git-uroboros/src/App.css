@@ -1,9 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap");
+.container{
+  margin-top: 3rem;
+  transition: ease all .5s;
+}
+
 .profile {
   margin-right: 1rem;
+  padding-top: 5rem;
+  transition: ease all .5s;
 }
 .commit {
   margin-top: 0.3rem;
+  transition: ease all .3s;
 }
 .btn {
   width: 8rem;
@@ -26,6 +34,8 @@
     align-items: center;
     text-align: -webkit-center;
     margin-bottom: 2rem;
+    padding-top: 0rem;
+
   }
   .commits {
     width: 100%;
