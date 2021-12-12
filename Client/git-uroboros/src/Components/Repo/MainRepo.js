@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import ErrorModal from "../UIComponents/ErrorModal";
 import CardRepo from "./CardRepo";
 
 const MainRepo = () => {
@@ -12,28 +13,29 @@ const MainRepo = () => {
   }, []);
 
   const GetRepo = async () => {
+    setIsLoading(true);
     try {
-      setIsLoading(true);
       const response = await fetch("http://localhost:3000/api/repo");
       const resJson = await response.json();
-      if (!resJson.success) {
+      if (resJson.success === false) {
         throw new Error(resJson.message);
       }
       setRepoInfo(resJson.data.repo);
-      setIsLoading(false);
     } catch (error) {
       setError(error);
     }
+    setIsLoading(false);
   };
 
   return (
     <Fragment>
+      {ErrorCatch && <ErrorModal error={ErrorCatch}/>}
       {IsLoading && (
         <div className="center spinner">
           <Spinner animation="grow" />
         </div>
       )}
-      {!IsLoading && repoInfo && <CardRepo repo={repoInfo} />}
+      <div>{!IsLoading && repoInfo && <CardRepo repo={repoInfo} />}</div>
     </Fragment>
   );
 };

@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import ErrorModal from "../UIComponents/ErrorModal";
 import CardProfile from "./CardProfile";
 
 const MainProfile = () => {
@@ -12,22 +13,24 @@ const MainProfile = () => {
   }, []);
 
   const GetProfile = async () => {
+    setIsLoading(true);
     try {
-      setIsLoading(true);
       const response = await fetch("http://localhost:3000/api/profile");
       const resJson = await response.json();
-      if (!resJson.success) {
+      console.log(resJson);
+      if (resJson.success === false) {
         throw new Error(resJson.message);
       }
       setProfile(resJson.data.profile);
-      setIsLoading(false);
     } catch (error) {
       setError(error);
     }
+    setIsLoading(false);
   };
 
   return (
     <Fragment>
+      {ErrorCatch && <ErrorModal error={ErrorCatch}/>}
       {IsLoading && (
         <div className="center spinner">
           <Spinner animation="grow" />
