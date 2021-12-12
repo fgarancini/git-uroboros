@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const gitRouter = require("./routes/github");
 const morgan = require("morgan");
+const { returnError } = require("./middleware/errorMiddle");
 dotenv.config({ path: "./.env" });
 
 const app = express();
@@ -20,6 +21,6 @@ app.use((req,res,next) => {
 
 app.use("/api", gitRouter);
 
-app.get("/", (req, res) => res.send("Hello World!"));
+app.use(returnError);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
