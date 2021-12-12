@@ -1,4 +1,7 @@
-
+.card-repo{
+  background-color: #161b22;
+  color: #c9d1d9;
+}
 .btn-repo {
   float: right;
 }

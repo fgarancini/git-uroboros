@@ -1,3 +1,11 @@
+.commit{
+  background-color: #161b22;
+  color: #c9d1d9;
+}
+.list-group-item-dark.list-group-item-action:hover{
+  background-color: #3d434b;
+  color: #c9d1d9;
+}
 .btn{
   width: 8rem;
   font-size: 15px;
