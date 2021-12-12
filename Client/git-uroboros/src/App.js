@@ -1,4 +1,3 @@
-import { Alert } from "react-bootstrap";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MainProfile from "./Components/Profile/MainProfile";

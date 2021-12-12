@@ -1,5 +1,5 @@
 const { Octokit, App } = require("octokit");
-
+const moment = require('moment');
 const AuthGit = () => {
   const octoKit = new Octokit({ auth: process.env.GIT_TOKEN });
   return octoKit;
@@ -36,14 +36,18 @@ const GetCommits = async () => {
   const commitsReq = await octoKit.request(
     "GET /repos/fgarancini/git-uroboros/commits"
   );
-
   const commits = commitsReq.data.map((commitInfo) => {
+    const short_sha = commitInfo.sha.substr(1,7);
+    console.log(commitInfo.commit.author.date);
     const commit = {
       sha: commitInfo.sha,
+      short_sha:short_sha,
       html_url: commitInfo.html_url,
       author: commitInfo.commit.author.name,
       message: commitInfo.commit.message,
+      created_at: moment(commitInfo.commit.author.date).startOf('hour').fromNow() ,
     };
+    
     return commit;
   });
 

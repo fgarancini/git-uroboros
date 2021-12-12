@@ -1,9 +1,9 @@
 import React from "react";
-import { ListGroup } from "react-bootstrap";
+import { Button, ListGroup } from "react-bootstrap";
 import "./Commits.css";
 const Commits = (props) => {
   return (
-    <ListGroup as="ol" numbered>
+    <ListGroup as="ol">
       {props.item.map((commit) => {
         return (
           <ListGroup.Item
@@ -15,7 +15,11 @@ const Commits = (props) => {
             <div className="ms-3 me-auto">
               <div className="fw-bold">{commit.message}</div>
               {commit.author}
+               <i>{`  commited ${commit.created_at}`}</i>
             </div>
+            <Button title={commit.sha} href={commit.html_url} size='lg'>
+              {commit.short_sha}
+            </Button>
           </ListGroup.Item>
         );
       })}

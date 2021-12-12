@@ -2,13 +2,14 @@
   width: 66rem;
   left: 15%;
   top: 5rem;
+  text-align-last: center;
 }
 
 .btn-repo {
-
   float: right;
 }
 
 .label-repo {
-  float: left;
+  margin: 5px;
+  text-align: center;
 }
