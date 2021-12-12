@@ -7,10 +7,10 @@ const MainRepo = () => {
   const [repoInfo, setRepoInfo] = useState();
 
   useEffect(() => {
-    GetProfile();
+    GetRepo();
   }, []);
 
-  const GetProfile = async () => {
+  const GetRepo = async () => {
     setIsLoading(true);
     const response = await fetch("http://localhost:3000/api/repo");
     const resJson = await response.json();

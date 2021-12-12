@@ -1,0 +1,19 @@
+.card-profile {
+  position: absolute;
+  top: 25%;
+  margin-left: 3rem;
+  background-color: #e5ebf1;
+  border-color: #646b72;
+}
+
+.btn {
+  color: #c9d1d9;
+  background-color: #21262d;
+  border-color: rgba(240, 246, 252, 0.1);
+  box-shadow: var(--color-btn-shadow), var(--color-btn-inset-shadow);
+}
+
+.btn:hover {
+  background-color: #30363d;
+  border-color: #8b949e;
+}

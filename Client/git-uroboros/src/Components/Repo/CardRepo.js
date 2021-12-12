@@ -7,7 +7,7 @@ const CardRepo = (props) => {
             <Card className='card-repo'>
                 <Card.Body>
                     <label>{props.repo.full_name}</label>
-                    <Button className='btn-repo'>Repo 🚀</Button>
+                    <Button className='btn-repo' href={props.repo.html_url}>Repo 🚀</Button>
                 </Card.Body>
             </Card>
         </section>

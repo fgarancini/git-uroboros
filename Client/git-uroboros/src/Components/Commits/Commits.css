@@ -1,0 +1,8 @@
+.commit {
+  margin: 0.2rem;
+  width: 65rem;
+  min-width: 20rem;
+  left: 15%;
+  top: 5rem;
+  text-align: left;
+}
