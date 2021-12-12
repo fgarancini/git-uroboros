@@ -11,7 +11,7 @@ const GetProfile = async () => {
   const profile = {
     login: profileReq.data.login,
     avatar_url: profileReq.data.avatar_url,
-    repos_url: profileReq.data.repos_url,
+    html_url: profileReq.data.html_url,
     name: profileReq.data.name,
     created_at: profileReq.data.created_at,
   };
