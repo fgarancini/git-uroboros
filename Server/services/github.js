@@ -20,7 +20,7 @@ const GetProfile = async () => {
 
 const GetRepo = async () => {
   const octoKit = AuthGit();
-  const repoReq = await octoKit.request("GET /repos/fgarancini/git-uroboross");
+  const repoReq = await octoKit.request("GET /repos/fgarancini/git-uroboros");
   const repo = {
     full_name: repoReq.data.full_name,
     html_url: repoReq.data.html_url,

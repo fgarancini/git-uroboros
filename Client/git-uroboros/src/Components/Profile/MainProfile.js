@@ -1,27 +1,40 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import CardProfile from "./CardProfile";
 
 const MainProfile = () => {
   const [IsLoading, setIsLoading] = useState(false);
-  const [Error, setError] = useState(false);
-  const [profileInfo, setProfile] = useState();
-  
+  const [ErrorCatch, setError] = useState(false);
+  const [profileInfo, setProfile] = useState(undefined);
+
   useEffect(() => {
     GetProfile();
   }, []);
 
   const GetProfile = async () => {
-    setIsLoading(true);
-    const response = await fetch("http://localhost:3000/api/profile");
-    const resJson = await response.json();
-    setProfile(resJson.data.profile);
-    setIsLoading(false);
+    try {
+      setIsLoading(true);
+      const response = await fetch("http://localhost:3000/api/profile");
+      const resJson = await response.json();
+      if (!resJson.success) {
+        throw new Error(resJson.message);
+      }
+      setProfile(resJson.data.profile);
+      setIsLoading(false);
+    } catch (error) {
+      setError(error);
+    }
   };
 
   return (
-    <div>
+    <Fragment>
+      {IsLoading && (
+        <div className="center spinner">
+          <Spinner animation="grow" />
+        </div>
+      )}
       {!IsLoading && profileInfo && <CardProfile item={profileInfo} />}
-      </div>
+    </Fragment>
   );
 };
 
