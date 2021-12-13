@@ -15,7 +15,7 @@ const MainProfile = () => {
   const GetProfile = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:3000/api/profile");
+      const response = await fetch("http://localhost:3001/api/profile");
       const resJson = await response.json();
       if (resJson.success === false) {
         throw new Error(resJson.message);

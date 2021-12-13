@@ -9,10 +9,15 @@ Front-end build in Reactjs and Bootstrap.
 
 Create a .env file in the Server folder add your GIT_TOKEN, GIT_USER GIT_REPO and set your port. Currently .env.example has my git user and this repo, but no my api key 🤖.
 
+##### Important 🔴
+
+🧩 Client is fetching data from port 3001.
+
 Example
 
 ``` bash
 GIT_TOKEN=API_KEY
+PORT=3001
 GIT_USER=fgarancini
 GIT_REPO=git-uroboros
 ```

@@ -15,7 +15,7 @@ const MainRepo = () => {
   const GetRepo = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:3000/api/repo");
+      const response = await fetch("http://localhost:3001/api/repo");
       const resJson = await response.json();
       if (resJson.success === false) {
         throw new Error(resJson.message);
