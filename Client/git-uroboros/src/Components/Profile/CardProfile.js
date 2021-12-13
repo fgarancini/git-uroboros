@@ -9,7 +9,7 @@ const CardProfile = (props) => {
       <Card.Body>
         <Card.Title>{props.item.name}</Card.Title>
         <Card.Text>
-          Hello! My name is Franco and you can follow the progress of this repo
+          Hello! My name is {props.item.name} and you can follow the progress of this repo
           and its commits!
         </Card.Text>
         <Button variant="primary" href={props.item.html_url}>
