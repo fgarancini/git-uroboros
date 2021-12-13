@@ -11,6 +11,7 @@ const Commits = (props) => {
             className="commit d-flex justify-content-between "
             action
             variant="dark"
+            key={commit.short_sha}
           >
             <div className="ms-3 me-auto">
               <div className="fw-bold">{commit.message}</div>

@@ -12,7 +12,7 @@ function App() {
           <div className="col-lg-3 profile">
             <MainProfile />
           </div>
-          <div className="col-md-8 ms-auto">
+          <div className="col-lg-8 ms-auto">
             <MainRepo />
             <MainCommits />
           </div>

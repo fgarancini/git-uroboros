@@ -20,7 +20,7 @@ const GetProfile = async () => {
 
 const GetRepo = async () => {
   const octoKit = AuthGit();
-  const repoReq = await octoKit.request("GET /repos/fgarancini/git-uroboros");
+  const repoReq = await octoKit.request(`GET /repos/${process.env.GIT_USER}/${process.env.GIT_REPO}`);
   const repo = {
     full_name: repoReq.data.full_name,
     html_url: repoReq.data.html_url,
@@ -34,7 +34,7 @@ const GetRepo = async () => {
 const GetCommits = async () => {
   const octoKit = AuthGit();
   const commitsReq = await octoKit.request(
-    "GET /repos/fgarancini/git-uroboros/commits"
+    `GET /repos/${process.env.GIT_USER}/${process.env.GIT_REPO}/commits`
   );
   const commits = commitsReq.data.map((commitInfo) => {
     const short_sha = commitInfo.sha.substr(1,7);
